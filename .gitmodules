@@ -1,3 +1,7 @@
+[submodule "modules/stc0"]
+	path = modules/stc0
+	url = ../stc0
+	branch = ef-mpw202106
 [submodule "caravel-lite"]
 	path = caravel
 	url = https://github.com/efabless/caravel-lite
