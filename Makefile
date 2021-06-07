@@ -65,7 +65,7 @@ $(DV_PATTERNS): verify-% : ./verilog/dv/%
                 sh -c $(VERIFY_COMMAND)
 				
 # Openlane Makefile Targets
-BLOCKS = $(shell cd openlane && find * -maxdepth 0 -type d)
+BLOCKS = $(shell cd openlane && find -L * -maxdepth 0 -type d)
 .PHONY: $(BLOCKS)
 $(BLOCKS): %:
 	cd openlane && $(MAKE) $*
