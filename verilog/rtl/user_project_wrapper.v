@@ -82,7 +82,7 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-user_proj_example mprj (
+stc0_core mprj(
     `ifdef USE_POWER_PINS
 	.vdda1(vdda1),	// User area 1 3.3V power
 	.vdda2(vdda2),	// User area 2 3.3V power
@@ -94,34 +94,35 @@ user_proj_example mprj (
 	.vssd2(vssd2),	// User area 2 digital ground
     `endif
 
-    .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
+    //.wb_clk_i(wb_clk_i),
+    //.wb_rst_i(wb_rst_i),
 
     // MGMT SoC Wishbone Slave
-
-    .wbs_cyc_i(wbs_cyc_i),
-    .wbs_stb_i(wbs_stb_i),
-    .wbs_we_i(wbs_we_i),
-    .wbs_sel_i(wbs_sel_i),
-    .wbs_adr_i(wbs_adr_i),
-    .wbs_dat_i(wbs_dat_i),
-    .wbs_ack_o(wbs_ack_o),
-    .wbs_dat_o(wbs_dat_o),
+    //.wbs_cyc_i(wbs_cyc_i),
+    //.wbs_stb_i(wbs_stb_i),
+    //.wbs_we_i(wbs_we_i),
+    //.wbs_sel_i(wbs_sel_i),
+    //.wbs_adr_i(wbs_adr_i),
+    //.wbs_dat_i(wbs_dat_i),
+    //.wbs_ack_o(wbs_ack_o),
+    //.wbs_dat_o(wbs_dat_o),
 
     // Logic Analyzer
-
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
-
-    // IO Pads
-
-    .io_in (io_in),
-    .io_out(io_out),
-    .io_oeb(io_oeb),
+    //.la_data_in(la_data_in),
+    //.la_data_out(la_data_out),
+    //.la_oenb (la_oenb),
 
     // IRQ
-    .irq(user_irq)
+    //.irq(user_irq)
+
+    .ClkIngress(user_clock2),
+    .ClkProc(1'b0),
+    .ARst(io_in[0]),
+    .ID(io_in[8:1]),
+    .IValid(io_in[9]),
+    .ED(io_out[26:19]),
+    .EValid(io_out[27])
+
 );
 
 endmodule	// user_project_wrapper
