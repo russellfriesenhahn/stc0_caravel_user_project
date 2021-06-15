@@ -67,9 +67,8 @@ module user_proj_example #(
     input  [127:0] la_oenb,
 
     // IOs
-    input  [`MPRJ_IO_PADS-1:0] io_in,
-    output [`MPRJ_IO_PADS-1:0] io_out,
-    output [`MPRJ_IO_PADS-1:0] io_oeb,
+    output [1:0] io_out,
+    output [1:0] io_oeb,
 
     // IRQ
     output [2:0] irq
@@ -77,9 +76,8 @@ module user_proj_example #(
     wire clk;
     wire rst;
 
-    wire [`MPRJ_IO_PADS-1:0] io_in;
-    wire [`MPRJ_IO_PADS-1:0] io_out;
-    wire [`MPRJ_IO_PADS-1:0] io_oeb;
+    wire [1:0] io_out;
+    wire [1:0] io_oeb;
 
     wire [31:0] rdata; 
     wire [31:0] wdata;
@@ -96,8 +94,8 @@ module user_proj_example #(
     assign wdata = wbs_dat_i;
 
     // IO
-    assign io_out = count;
-    assign io_oeb = {(`MPRJ_IO_PADS-1){rst}};
+    assign io_out = count[29:28];
+    assign io_oeb = {(2){rst}};
 
     // IRQ
     assign irq = 3'b000;	// Unused
