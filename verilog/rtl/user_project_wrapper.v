@@ -81,6 +81,40 @@ module user_project_wrapper #(
 /*--------------------------------------*/
 /* User project is instantiated  here   */
 /*--------------------------------------*/
+lfsr32 lfsr32ext(
+    `ifdef USE_POWER_PINS
+    .vdda1(vdda1),    // User area 1 3.3V power
+    .vdda2(vdda2),    // User area 2 3.3V power
+    .vssa1(vssa1),    // User area 1 analog ground
+    .vssa2(vssa2),    // User area 2 analog ground
+    .vccd1(vccd1),    // User area 1 1.8V power
+    .vccd2(vccd2),    // User area 2 1.8V power
+    .vssd1(vssd1),    // User area 1 digital ground
+    .vssd2(vssd2),    // User area 2 digital ground
+    `endif
+    .Clk(io_in[32]),
+    .ARstb(io_in[36]),
+    .LFSR0out(io_in[33]),
+    .LFSR1in(io_in[34]),
+    .LFSR1out(io_in[35])
+);
+lfsr32 lfsr32int(
+    `ifdef USE_POWER_PINS
+    .vdda1(vdda1),    // User area 1 3.3V power
+    .vdda2(vdda2),    // User area 2 3.3V power
+    .vssa1(vssa1),    // User area 1 analog ground
+    .vssa2(vssa2),    // User area 2 analog ground
+    .vccd1(vccd1),    // User area 1 1.8V power
+    .vccd2(vccd2),    // User area 2 1.8V power
+    .vssd1(vssd1),    // User area 1 digital ground
+    .vssd2(vssd2),    // User area 2 digital ground
+    `endif
+    .Clk(user_clock2),
+    .ARstb(io_in[8]),
+    .LFSR0out(io_in[11]),
+    .LFSR1in(io_in[10]),
+    .LFSR1out(io_in[9])
+);
 
 stc0_core mprj(
     `ifdef USE_POWER_PINS
