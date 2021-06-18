@@ -30,7 +30,7 @@ set ::env(VERILOG_FILES) "\
 	$script_dir/../../verilog/rtl/user_project_wrapper.v"
 
 ## Clock configurations
-set ::env(CLOCK_PORT) "user_clock2"
+set ::env(CLOCK_PORT) "mprj.ClkIngress user_clock2"
 set ::env(CLOCK_NET) "mprj.ClkIngress"
 
 set ::env(CLOCK_PERIOD) "10"
@@ -42,13 +42,16 @@ set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 ### Black-box verilog and views
 set ::env(VERILOG_FILES_BLACKBOX) "\
 	$script_dir/../../caravel/verilog/rtl/defines.v \
-    [glob $script_dir/../../modules/stc0/verilog/rtl/*.v]"
+    [glob $script_dir/../../modules/stc0/verilog/rtl/*.v] \
+	$script_dir/../../verilog/rtl/user_proj_example.v"
 
 set ::env(EXTRA_LEFS) "\
-	$script_dir/../../lef/stc0_core.lef"
+	$script_dir/../../lef/stc0_core.lef \
+	$script_dir/../../lef/user_proj_example.lef"
 
 set ::env(EXTRA_GDS_FILES) "\
-	$script_dir/../../gds/stc0_core.gds"
+	$script_dir/../../gds/stc0_core.gds \
+	$script_dir/../../gds/user_proj_example.gds"
 
 set ::env(GLB_RT_MAXLAYER) 5
 
