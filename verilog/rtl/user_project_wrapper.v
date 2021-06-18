@@ -94,14 +94,13 @@ stc0_core mprj(
 	.vssd2(vssd2),	// User area 2 digital ground
     `endif
 
-    .ClkIngress(user_clock2),
-    .ClkProc(1'b0),
-    .ARst(io_in[31]),
+    .ClkIngress(io_in[32]),
+    .ARstb(io_in[31]),
     .ID({io_in[30:27],io_in[25:22]}),
     .IValid(io_in[26]),
     .ED({io_out[20:17],io_out[15:12]}),
-    .EValid(io_out[16]),
-    .EClk(io_out[21])
+    .EValid(io_out[16])
+    //.EClk(io_out[21])
 );
 
 user_proj_example user_proj_example (
