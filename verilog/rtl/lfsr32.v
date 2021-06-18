@@ -34,9 +34,6 @@ module lfsr32 (
 `endif
 	input wire  Clk,
 	input wire  ARstb,
-	input wire  Enable,
-	input wire  Load,
-	input wire  [31:0] Seed,
 	output wire LFSR0out,
     input  wire LFSR1in,
 	output wire LFSR1out
@@ -54,22 +51,17 @@ module lfsr32 (
             lfsr0 <= 1;
             lfsr1 <= 1;
 		end else begin
-			if (Load == 1'b1) begin
-                lfsr0 <= Seed;
-                lfsr1 <= Seed;
-			end else if (Enable == 1'b1) begin
-                lfsr0[31:22] <= {lfsr0[0],lfsr0[31:23]};
-                lfsr0[21] <= lfsr0[0] ^ lfsr0[22];
-                lfsr0[20:2] <= lfsr0[21:3];
-                lfsr0[1] <= lfsr0[0] ^ lfsr0[2];
-                lfsr0[0] <= lfsr0[0] ^ lfsr0[1];
+            lfsr0[31:22] <= {lfsr0[0],lfsr0[31:23]};
+            lfsr0[21] <= lfsr0[0] ^ lfsr0[22];
+            lfsr0[20:2] <= lfsr0[21:3];
+            lfsr0[1] <= lfsr0[0] ^ lfsr0[2];
+            lfsr0[0] <= lfsr0[0] ^ lfsr0[1];
 
-                lfsr1[31:22] <= {LFSR1in,lfsr1[31:23]};
-                lfsr1[21] <= lfsr1[0] ^ lfsr1[22];
-                lfsr1[20:2] <= lfsr1[21:3];
-                lfsr1[1] <= lfsr1[0] ^ lfsr1[2];
-                lfsr1[0] <= lfsr1[0] ^ lfsr1[1];
-			end
+            lfsr1[31:22] <= {LFSR1in,lfsr1[31:23]};
+            lfsr1[21] <= lfsr1[0] ^ lfsr1[22];
+            lfsr1[20:2] <= lfsr1[21:3];
+            lfsr1[1] <= lfsr1[0] ^ lfsr1[2];
+            lfsr1[0] <= lfsr1[0] ^ lfsr1[1];
 		end
 	end
 endmodule
