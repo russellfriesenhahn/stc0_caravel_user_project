@@ -14,8 +14,6 @@
 // NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE
 // USE OR PERFORMANCE OF THIS SOFTWARE.
 
-`ifndef LFSR_V_
-`define LFSR_V_
 
 // LFSR polynomial coeffiecients: x^32 + x^22 + x^2 + x^1 + 1
 // LFSR width: 32 bits
