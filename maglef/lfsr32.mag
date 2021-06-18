@@ -1,0 +1,117 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1624022296
+<< nwell >>
+rect 1066 36709 38862 37275
+rect 1066 35621 38862 36187
+rect 1066 34533 38862 35099
+rect 1066 33445 38862 34011
+rect 1066 32357 38862 32923
+rect 1066 31269 38862 31835
+rect 1066 30181 38862 30747
+rect 1066 29093 38862 29659
+rect 1066 28005 38862 28571
+rect 1066 26917 38862 27483
+rect 1066 25829 38862 26395
+rect 1066 24741 38862 25307
+rect 1066 23653 38862 24219
+rect 1066 22565 38862 23131
+rect 1066 21477 38862 22043
+rect 1066 20389 38862 20955
+rect 1066 19301 38862 19867
+rect 1066 18213 38862 18779
+rect 1066 17125 38862 17691
+rect 1066 16037 38862 16603
+rect 1066 14949 38862 15515
+rect 1066 13861 38862 14427
+rect 1066 12773 38862 13339
+rect 1066 11685 38862 12251
+rect 1066 10597 38862 11163
+rect 1066 9509 38862 10075
+rect 1066 8421 38862 8987
+rect 1066 7333 38862 7899
+rect 1066 6245 38862 6811
+rect 1066 5157 38862 5723
+rect 1066 4069 38862 4635
+rect 1066 2981 38862 3547
+rect 1066 2138 38862 2459
+<< obsli1 >>
+rect 1104 2159 38824 37553
+<< obsm1 >>
+rect 1104 1912 38824 37584
+<< metal2 >>
+rect 4986 0 5042 800
+rect 14922 0 14978 800
+rect 24950 0 25006 800
+rect 34978 0 35034 800
+<< obsm2 >>
+rect 4220 856 38162 37584
+rect 4220 800 4930 856
+rect 5098 800 14866 856
+rect 15034 800 24894 856
+rect 25062 800 34922 856
+rect 35090 800 38162 856
+<< metal3 >>
+rect 39200 20000 40000 20120
+<< obsm3 >>
+rect 4208 20200 39200 37569
+rect 4208 19920 39120 20200
+rect 4208 2143 39200 19920
+<< metal4 >>
+rect 4208 2128 4528 37584
+rect 4868 2176 5188 37536
+rect 5528 2176 5848 37536
+rect 6188 2176 6508 37536
+rect 19568 2128 19888 37584
+rect 20228 2176 20548 37536
+rect 20888 2176 21208 37536
+rect 21548 2176 21868 37536
+rect 34928 2128 35248 37584
+rect 35588 2176 35908 37536
+rect 36248 2176 36568 37536
+rect 36908 2176 37228 37536
+<< labels >>
+rlabel metal3 s 39200 20000 40000 20120 6 ARstb
+port 1 nsew signal input
+rlabel metal2 s 4986 0 5042 800 6 Clk
+port 2 nsew signal input
+rlabel metal2 s 14922 0 14978 800 6 LFSR0out
+port 3 nsew signal output
+rlabel metal2 s 24950 0 25006 800 6 LFSR1in
+port 4 nsew signal input
+rlabel metal2 s 34978 0 35034 800 6 LFSR1out
+port 5 nsew signal output
+rlabel metal4 s 34928 2128 35248 37584 6 vccd1
+port 6 nsew power bidirectional
+rlabel metal4 s 4208 2128 4528 37584 6 vccd1
+port 7 nsew power bidirectional
+rlabel metal4 s 19568 2128 19888 37584 6 vssd1
+port 8 nsew ground bidirectional
+rlabel metal4 s 35588 2176 35908 37536 6 vccd2
+port 9 nsew power bidirectional
+rlabel metal4 s 4868 2176 5188 37536 6 vccd2
+port 10 nsew power bidirectional
+rlabel metal4 s 20228 2176 20548 37536 6 vssd2
+port 11 nsew ground bidirectional
+rlabel metal4 s 36248 2176 36568 37536 6 vdda1
+port 12 nsew power bidirectional
+rlabel metal4 s 5528 2176 5848 37536 6 vdda1
+port 13 nsew power bidirectional
+rlabel metal4 s 20888 2176 21208 37536 6 vssa1
+port 14 nsew ground bidirectional
+rlabel metal4 s 36908 2176 37228 37536 6 vdda2
+port 15 nsew power bidirectional
+rlabel metal4 s 6188 2176 6508 37536 6 vdda2
+port 16 nsew power bidirectional
+rlabel metal4 s 21548 2176 21868 37536 6 vssa2
+port 17 nsew ground bidirectional
+<< properties >>
+string LEFclass BLOCK
+string FIXED_BBOX 0 0 40000 40000
+string LEFview TRUE
+string GDS_FILE /project/openlane/lfsr32/runs/lfsr32/results/magic/lfsr32.gds
+string GDS_END 796136
+string GDS_START 101674
+<< end >>
+
