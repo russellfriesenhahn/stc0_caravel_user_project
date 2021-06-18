@@ -24,6 +24,7 @@ set ::env(VERILOG_FILES) "\
 set ::env(CLOCK_PORT) "Clk"
 set ::env(CLOCK_NET) "Clk"
 set ::env(CLOCK_PERIOD) "5"
+set ::env(GLB_RT_MAXLAYER) 5
 
 set ::env(FP_SIZING) absolute
 set ::env(DIE_AREA) "0 0 200 200"
