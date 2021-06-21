@@ -135,7 +135,12 @@ stc0_core mprj(
     .ID({io_in[30:27],io_in[25:22]}),
     .IValid(io_in[26]),
     .ED({io_out[20:17],io_out[15:12]}),
-    .EValid(io_out[16])
+    .EValid(io_out[16]),
+    .io_oeb({io_oeb[32],
+            io_oeb[31],
+            io_oeb[30:22],
+            io_oeb[20:12]}
+        )
     //.EClk(io_out[21])
 );
 

@@ -22,7 +22,24 @@
     `default_nettype wire
     `include "gl/user_project_wrapper.v"
     `include "gl/user_proj_example.v"
+    `include "gl/stc0_core.v"
+    `include "gl/lfsr32.v"
 `else
     `include "user_project_wrapper.v"
     `include "user_proj_example.v"
+    `include "lfsr32.v"
+    `include "rstSync.v"
+    `include "lfsr32stc0.v"
+    `include "stc0_addrMap.vh"
+    `include "crc32reg.v"
+    `include "byteIngressCmdProcessor.v"
+    `include "crc32.v"
+    `include "egressStage.v"
+    `include "multiplier.v"
+    `include "oneWordFifo.v"
+    `include "spram.v"
+    `include "stc0butterfly.v"
+    `include "stc0_core.v"
+    `include "stc0Ctrl.v"
+    
 `endif
