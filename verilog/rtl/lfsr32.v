@@ -34,12 +34,15 @@ module lfsr32 (
 	input wire  ARstb,
 	output wire LFSR0out,
     input  wire LFSR1in,
-	output wire LFSR1out
+	output wire LFSR1out,
+    output wire [4:0] io_oeb
 );
     reg [31:0] lfsr0;
     reg [31:0] lfsr1;
     assign LFSR0out = lfsr0[0];
     assign LFSR1out = lfsr1[0];
+
+    assign io_oeb = 5'b11010;
 
     wire ARst;
     rstSync#(.NUM_SYNC_CLKS(5)) rstSync(.Clk(Clk),.ARstb(ARstb),.Rst(ARst));
@@ -63,5 +66,4 @@ module lfsr32 (
 		end
 	end
 endmodule
-`endif // lfsr_reg_V_
 `default_nettype wire
