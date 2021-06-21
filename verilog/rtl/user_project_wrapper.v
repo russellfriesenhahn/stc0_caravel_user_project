@@ -94,9 +94,10 @@ lfsr32 lfsr32ext(
     `endif
     .Clk(io_in[32]),
     .ARstb(io_in[36]),
-    .LFSR0out(io_in[33]),
+    .LFSR0out(io_out[33]),
     .LFSR1in(io_in[34]),
-    .LFSR1out(io_in[35])
+    .LFSR1out(io_out[35]),
+    .io_oeb({io_oeb[32],io_oeb[36],io_oeb[33],io_oeb[34],io_oeb[35]})
 );
 lfsr32 lfsr32int(
     `ifdef USE_POWER_PINS
@@ -111,9 +112,10 @@ lfsr32 lfsr32int(
     `endif
     .Clk(user_clock2),
     .ARstb(io_in[8]),
-    .LFSR0out(io_in[11]),
+    .LFSR0out(io_out[11]),
     .LFSR1in(io_in[10]),
-    .LFSR1out(io_in[9])
+    .LFSR1out(io_out[9]),
+    .io_oeb({io_oeb[7],io_oeb[8],io_oeb[11],io_oeb[10],io_oeb[9]})
 );
 
 stc0_core mprj(
