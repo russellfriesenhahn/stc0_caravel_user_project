@@ -143,7 +143,7 @@ module io_ports_tb;
         wait(CSB == 1'b0)
         wait(Egress == 8'hDE);
         wait((lfsrByteExt0 == 8'h47) && (lfsrByteExt1 == 8'hD6))
-        wait((lfsrByteInt0 == 8'hDB) && (lfsrByteInt1 == 8'h9A))
+        wait((lfsrByteInt0 == 8'hDB) && (lfsrByteInt1 == 8'h9B))
 
         //#100000
 		`ifdef GL
