@@ -81,8 +81,70 @@ module user_project_wrapper #(
 /*--------------------------------------*/
 /* User project is instantiated  here   */
 /*--------------------------------------*/
+lfsr32 lfsr32ext(
+    `ifdef USE_POWER_PINS
+    .vdda1(vdda1),    // User area 1 3.3V power
+    .vdda2(vdda2),    // User area 2 3.3V power
+    .vssa1(vssa1),    // User area 1 analog ground
+    .vssa2(vssa2),    // User area 2 analog ground
+    .vccd1(vccd1),    // User area 1 1.8V power
+    .vccd2(vccd2),    // User area 2 1.8V power
+    .vssd1(vssd1),    // User area 1 digital ground
+    .vssd2(vssd2),    // User area 2 digital ground
+    `endif
+    .Clk(io_in[32]),
+    .ARstb(io_in[36]),
+    .LFSR0out(io_out[33]),
+    .LFSR1in(io_in[34]),
+    .LFSR1out(io_out[35]),
+    .io_oeb({io_oeb[32],io_oeb[36],io_oeb[33],io_oeb[34],io_oeb[35]})
+);
+lfsr32 lfsr32int(
+    `ifdef USE_POWER_PINS
+    .vdda1(vdda1),    // User area 1 3.3V power
+    .vdda2(vdda2),    // User area 2 3.3V power
+    .vssa1(vssa1),    // User area 1 analog ground
+    .vssa2(vssa2),    // User area 2 analog ground
+    .vccd1(vccd1),    // User area 1 1.8V power
+    .vccd2(vccd2),    // User area 2 1.8V power
+    .vssd1(vssd1),    // User area 1 digital ground
+    .vssd2(vssd2),    // User area 2 digital ground
+    `endif
+    .Clk(user_clock2),
+    .ARstb(io_in[8]),
+    .LFSR0out(io_out[11]),
+    .LFSR1in(io_in[10]),
+    .LFSR1out(io_out[9]),
+    .io_oeb({io_oeb[7],io_oeb[8],io_oeb[11],io_oeb[10],io_oeb[9]})
+);
 
-user_proj_example mprj (
+stc0_core mprj(
+    `ifdef USE_POWER_PINS
+	.vdda1(vdda1),	// User area 1 3.3V power
+	.vdda2(vdda2),	// User area 2 3.3V power
+	.vssa1(vssa1),	// User area 1 analog ground
+	.vssa2(vssa2),	// User area 2 analog ground
+	.vccd1(vccd1),	// User area 1 1.8V power
+	.vccd2(vccd2),	// User area 2 1.8V power
+	.vssd1(vssd1),	// User area 1 digital ground
+	.vssd2(vssd2),	// User area 2 digital ground
+    `endif
+
+    .ClkIngress(io_in[32]),
+    .ARstb(io_in[31]),
+    .ID({io_in[30:27],io_in[25:22]}),
+    .IValid(io_in[26]),
+    .ED({io_out[20:17],io_out[15:12]}),
+    .EValid(io_out[16]),
+    .io_oeb({io_oeb[32],
+            io_oeb[31],
+            io_oeb[30:22],
+            io_oeb[20:12]}
+        )
+    //.EClk(io_out[21])
+);
+
+user_proj_example user_proj_example (
     `ifdef USE_POWER_PINS
 	.vdda1(vdda1),	// User area 1 3.3V power
 	.vdda2(vdda2),	// User area 2 3.3V power
@@ -116,9 +178,8 @@ user_proj_example mprj (
 
     // IO Pads
 
-    .io_in (io_in),
-    .io_out(io_out),
-    .io_oeb(io_oeb),
+    .io_out(io_out[1:0]),
+    .io_oeb(io_oeb[1:0]),
 
     // IRQ
     .irq(user_irq)
